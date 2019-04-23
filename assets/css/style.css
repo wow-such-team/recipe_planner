@@ -1,6 +1,6 @@
 body{
     color:#777777;
-    font-family: "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-family: 'Slabo 27px', serif;
     width: 960px;
     height:100%;
     text-align:center;
@@ -22,7 +22,7 @@ button{
     padding: .5rem;
     margin: 10px;
     cursor: pointer;
-    width: calc(100% / 6);
+    width: calc(100% / 5);
     float: left; 
     }
 
