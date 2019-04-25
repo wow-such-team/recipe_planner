@@ -6,6 +6,7 @@ var quizQuestions = [{qNum: 1, question: "Pick your protein!", options: ["Beef",
 var question; // variable to store dynamically created element for questions
 var options; // variable to store dynamically created element for the options for each question
 var questionNum; // tracks which question is being displayed
+var nextButton; // variable to store dynamically created next button
 
 $(document).ready(function() {
   console.log("document ready");
@@ -19,9 +20,19 @@ $(document).ready(function() {
   // user clicks next button to move onto next question
   $("#next-button").on("click", function() {
     console.log("clicked next");
+
+    // increment questionNum so that next time displayQuestion is used, the next question object will be used
+    questionNum++;
+    console.log("question number: " + questionNum);
+
     $("#question").html("");
 
-    displayQuestion();
+    if(questionNum>=quizQuestions.length) {
+      console.log("no more questions");
+    }
+    else {
+      displayQuestion();
+    };
   });
 });
 
@@ -30,6 +41,8 @@ $(document).ready(function() {
 function displayQuestion() {
   // dynamically create div to store question
   question = $("<div>", {text: quizQuestions[questionNum].question});
+  // dynamically create button
+  nextButton = $("<button>", {id: "next-button", text: "Next"});
 
   console.log("number of options: " + quizQuestions[questionNum].options.length);
   // loop through number of options in each question object
@@ -43,15 +56,13 @@ function displayQuestion() {
     question.append(options);
   };
 
+  //append button to question div
+  // question.append(nextButton);
   // append the question (and all options) to the static div w/ id of question in quiz.html
   $("#question").append(question);
 
   // store the user's choice
   storeAnswers();
-
-  // increment questionNum so that next time displayQuestion is used, the next question object will be used
-  questionNum++;
-  console.log("question number: " + questionNum);
 };
 
 
@@ -66,3 +77,7 @@ function storeAnswers() {
     console.log(quizQuestions[questionNum]);
   });
 };
+
+// function nextOrPrevious() {
+
+// }
