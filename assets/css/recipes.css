@@ -1,0 +1,42 @@
+body{
+    color:#777777;
+    font-family: 'Slabo 27px', serif;
+    background-image: url("../images/background6.jpg");
+    }
+
+
+
+.recformat{
+    text-align: center;
+    height: 50%;
+    width: 500px;
+    float: left;
+    top: 20px;
+    color: black;
+}
+
+img{
+    height:150px;
+    width: 150px;
+    border-width: 1px;
+    border-style: solid;
+    border-color:black;
+}
+
+button{
+    opacity: 0.65;
+    position: relative;
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 30px;
+    line-height: 35px;
+    color: black;
+    border-width: 0;
+    border-style: solid;
+    border-color: #ffffff;
+    padding: .5rem;
+    margin: 10px;
+    cursor: pointer;
+    width: calc(100% / 5);
+    float: left; 
+    }
