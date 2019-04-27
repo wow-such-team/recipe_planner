@@ -5,6 +5,11 @@ body, html {
     background-position: center;
 }
 
+.display-4 {
+    font-family: 'Sarala', sans-serif;
+    font-size: 50px;
+}
+
 #search-bar {
     position: relative;
     float: left;
@@ -12,7 +17,7 @@ body, html {
     width: 50%;
     max-width: 400px;
     border: 3px solid rgb(67, 196, 247);
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     margin-right: 50%;
 }
 
@@ -44,7 +49,7 @@ body, html {
 #zipcodeP {
     color: rgb(221, 81, 112);
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 iframe {
@@ -53,4 +58,8 @@ iframe {
     max-width: 500px;
     margin: 15px;
     margin-left: 5%;
+}
+
+.navbar {
+    opacity: 0.65;
 }

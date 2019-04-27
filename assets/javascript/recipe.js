@@ -114,6 +114,7 @@ $(document).ready(function() {
             var a = $("<a>")
                 a.addClass("card-link")
                 a.attr("href", recLink).text("See Recipe");
+                a.attr("target", "_blank");
                 
 
             var source = $("<p>").addClass("card-text text-muted").text(ajaxResponse.hits[i].recipe.source)
