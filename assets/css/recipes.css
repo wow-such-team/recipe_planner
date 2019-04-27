@@ -1,12 +1,68 @@
-body{
-    color:#777777;
-    font-family: 'Slabo 27px', serif;
-    background-image: url("../images/background6.jpg");
-    }
+body, html {
+    background-image: url("../images/coral-background.jpg");
+    height: 100%;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    background-position: center;
+}
 
+#search-bar {
+    position: relative;
+    float: left;
+    top: 5%;
+    width: 60%;
+    max-width: 800px;
+    border: 3px solid rgb(253, 114, 172);
+    margin-left: 10%;
+    margin-bottom: 80px;
+}
 
+#search {
+    float: left;
+    width: 85%;
+    height: 35px;
+}
 
-.recformat{
+#searchSubmit {
+    float: left;
+    width: 5%;
+    padding: 0;
+    margin: 0;
+    width: 15%;
+    height: 35px;
+    color: white;
+    background-color: rgb(67, 196, 247);
+    border-color: white;
+    font-weight: bolder;
+}
+
+.card-columns {
+    float: left;
+    margin-right: 85px;
+}
+
+.card {
+    margin: 20px;
+    display: inline-block;
+}
+
+.card-body {
+    margin: 25px;
+    border: 10px solid rgb(67, 196, 247);;
+}
+
+#more-recipes {
+    background-color: rgb(67, 196, 247);
+    border: 2px solid;
+    border-color: black;
+    color: white;
+    padding: 5px 15px;
+    margin: 15px;
+    font-size: 20px;
+    float: right;
+}
+
+/* .recformat{
     text-align: center;
     height: 50%;
     width: 500px;
@@ -39,4 +95,4 @@ button{
     cursor: pointer;
     width: calc(100% / 5);
     float: left; 
-    }
+    } */

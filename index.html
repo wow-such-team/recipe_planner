@@ -6,22 +6,33 @@
 
     <!--link css here-->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Prompt|Sarala:700|Teko" rel="stylesheet">
+    <title>Recipe Planner</title>
+
+    <!-- Attribution Requirement -->
+    <script src="https://developer.edamam.com/attribution/badge.js"></script>
+
+</header>
+
+<body>
+
+    <!-- Jumbotron with the 3 buttons -->
+    <div class="main-jumbotron">
+            <h1 class="display-4">Recipe Planner</h1>
+            <p class="lead">Take the quiz below to help find the perfect recipe! Set health and diet specifications to help sort through thousands of receipes to find one that matches what you need.</p>
+            <button id = "quiz-button" class = "btn btn-light" onclick="window.location.href='quiz.html'">Quiz</button>
+            
+            <button id = "recipes-button" class = "btn btn-light" onclick="window.location.href='recipes.html'">All Recipes</button>
+            
+            <button id = "other-button" class = "btn btn-light" onclick="window.location.href='maps.html'">Wine Pairings</button>
+            <div id="edamam-badge"></div>
+
+    </div>
 
     <!--link javascript/jquery here-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <title>Recipe Planner</title>
-</header>
-<body>
-
-    <div class="container">
-        <button onclick="window.location.href='quiz.html'">Quiz</button>
-        
-        <button onclick="window.location.href='recipes.html'">All Recipes</button>
-       
-        <button onclick="window.location.href='maps.html'">Maps</button>
-    </div>
 </body>
 </html>
