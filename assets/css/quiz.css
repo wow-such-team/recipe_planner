@@ -2,3 +2,7 @@
     background: pink;
     border: 1px red;
 }
+
+.navbar {
+    opacity: 0.65;
+}
