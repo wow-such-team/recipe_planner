@@ -1,14 +1,60 @@
-body{
-    color:#777777;
-    font-family: 'Slabo 27px', serif;
-    width: 960px;
-    height:100%;
-    text-align:center;
-    display: inline-block;
-    background-image: url("../images/background5.jpg");
-    }
+body, html {
+    background-image: url("../images/background9.jpeg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
-button{
+.main-jumbotron {
+    text-align: left;
+    position: relative;
+    width: 65%;
+    top: 20%;
+    left: 25%;;
+    color: black;
+}
+
+.display-4 {
+    font-family: 'Sarala', sans-serif;
+    font-size: 60px;
+}
+
+#edaman {
+    font-family: 'Teko', sans-serif;
+    font-size: 20px;
+}
+
+button {
+    margin: 15px;
+    margin-bottom: 25px;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 18px;
+}
+
+#quiz-button {
+    background-color: rgb(67, 196, 247);
+    border: 2px solid;
+    border-color: black;
+    color: white;
+    padding: 5px 15px;
+    font-size: 20px;
+}
+
+#recipes-button {
+    background-color: rgb(233, 233, 220);
+    color: black;
+}
+
+#other-button {
+    background-color: rgb(241, 155, 115);
+    color: black;
+}
+
+/* button{
     opacity: 0.65;
     position: relative;
     margin: 1rem auto;
@@ -24,11 +70,9 @@ button{
     cursor: pointer;
     width: calc(100% / 5);
     float: left; 
-    }
+    } */
 
-.container{
-    position: relative;
-    left: 60%;
-    top: 300px;
-    
+
 }
+
+/* color:#777777; */
