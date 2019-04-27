@@ -8,7 +8,7 @@
 
     <!--link css here-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/recipes.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/quiz.css">
 
     <!--link javascript here-->
@@ -37,7 +37,7 @@
                 <a class="nav-link" href="recipes.html">All Recipes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="store.html">Wine Pairings</a>
+                <a class="nav-link" href="store.html">Nearby Grocery</a>
             </li>
             </ul>
         </div>
@@ -64,8 +64,13 @@
         </div>
     </div>
 
-    <div id="question"></div>
-    <button id="previous-button" data-target="#exampleModal">Previous</button>
-    <button id="next-button" data-target="#exampleModal">Next</button>
+    <!--jumbotron for quiz-->
+    <div class="jumbotron">
+        <h1 class="display-4" id="question-id"></h1>
+        <hr class="my-4">
+        <p class="lead" id="options-id"></p>
+        <button id="previous-button" data-target="#exampleModal">Previous</button>
+        <button id="next-button" data-target="#exampleModal">Next</button>
+    </div>    
 </body>
 </html>
