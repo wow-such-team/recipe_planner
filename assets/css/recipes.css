@@ -1,7 +1,6 @@
 body, html {
     background-image: url("../images/coral-background.jpg");
     height: 100%;
-    /* background-repeat: no-repeat; */
     background-size: cover;
     background-position: center;
 }
@@ -10,11 +9,12 @@ body, html {
     position: relative;
     float: left;
     top: 5%;
-    width: 60%;
+    width: 70%;
     max-width: 800px;
     border: 3px solid rgb(253, 114, 172);
-    margin-left: 10%;
+    margin-left: 20%;
     margin-bottom: 80px;
+    margin-right: 50%;
 }
 
 #search {
@@ -24,7 +24,7 @@ body, html {
 }
 
 #searchSubmit {
-    float: left;
+    /* float: left; */
     width: 5%;
     padding: 0;
     margin: 0;
@@ -62,37 +62,11 @@ body, html {
     float: right;
 }
 
-/* .recformat{
-    text-align: center;
-    height: 50%;
-    width: 500px;
-    float: left;
-    top: 20px;
-    color: black;
+#mainCard {
+    background-color: rgb(67, 196, 247);
 }
 
-img{
-    height:150px;
-    width: 150px;
-    border-width: 1px;
-    border-style: solid;
-    border-color:black;
-}
-
-button{
-    opacity: 0.65;
-    position: relative;
-    margin: 1rem auto;
+#search-jumbotron {
     text-align: center;
-    font-size: 30px;
-    line-height: 35px;
-    color: black;
-    border-width: 0;
-    border-style: solid;
-    border-color: #ffffff;
-    padding: .5rem;
-    margin: 10px;
-    cursor: pointer;
-    width: calc(100% / 5);
-    float: left; 
-    } */
+    margin-top: 25px;
+}

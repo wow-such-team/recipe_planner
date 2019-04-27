@@ -53,26 +53,3 @@ button {
     background-color: rgb(241, 155, 115);
     color: black;
 }
-
-/* button{
-    opacity: 0.65;
-    position: relative;
-    margin: 1rem auto;
-    text-align: center;
-    font-size: 30px;
-    line-height: 35px;
-    color: black;
-    border-width: 0;
-    border-style: solid;
-    border-color: #ffffff;
-    padding: .5rem;
-    margin: 10px;
-    cursor: pointer;
-    width: calc(100% / 5);
-    float: left; 
-    } */
-
-
-}
-
-/* color:#777777; */
