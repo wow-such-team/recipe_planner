@@ -1,12 +1,12 @@
 // array to store each question w/ associated options
-var quizQuestions = [{qID: "diet", question: "Do you have dietary restrictions?", options: ["Vegetarian", "Vegan", "Pescatarian", "Nothing in particular"], backImg: "", userAnswer: ""},
-                    {qID: "veggie protein", question: "Pick your protein!", options: ["Tofu", "Tempeh", "Seitan", "Mushrooms", "Anything"], backImg: "", userAnswer: ""},
-                    {qID: "sea protein", question: "Pick your protein!", options: ["Fish", "Shrimp", "Crab", "Lobster", "Clam", "Mussel", "Anything"], backImg: "", userAnswer: ""},
-                    {qID: "meat protein", question: "Pick your protein!", options: ["Beef", "Chicken", "Fish", "Pork", "Anything"], backImg: "", userAnswer: ""},
-                    {qID: "exclude", question: "Ingredients to exclude (use commas to separate if multiple ingredients).", options: "free answer", backImg: "", userAnswer: ""},
-                    {qID: "calories", question: "What is your desire calorie range?", options: "free answer", backImg: "", userAnswer: ""},
-                    {qID: "quantity", question: "How many are we cooking for?", options: "free answer", backImg: "", userAnswer: ""},
-                    {qID: "time", question: "How much time do you have?", options: "free answer", backImg: "", userAnswer: ""}];
+var quizQuestions = [{qID: "diet", question: "Do you have dietary restrictions?", options: ["Vegetarian", "Vegan", "Pescatarian", "Nothing in particular"], backImg: "background8.jpg", userAnswer: ""},
+                    {qID: "veggie protein", question: "Pick your protein!", options: ["Tofu", "Tempeh", "Seitan", "Mushrooms", "Anything"], backImg: "vegetable-background.jpeg", userAnswer: ""},
+                    {qID: "sea protein", question: "Pick your protein!", options: ["Fish", "Shrimp", "Crab", "Lobster", "Clam", "Mussel", "Anything"], backImg: "pescatarian-background.jpg", userAnswer: ""},
+                    {qID: "meat protein", question: "Pick your protein!", options: ["Beef", "Chicken", "Fish", "Pork", "Anything"], backImg: "meat-protein.jpg", userAnswer: ""},
+                    {qID: "exclude", question: "Ingredients to exclude (use commas to separate if multiple ingredients).", options: "free answer", backImg: "allergies.jpg", userAnswer: ""},
+                    {qID: "calories", question: "What is your desire calorie range?", options: "free answer", backImg: "calories.jpg", userAnswer: ""},
+                    {qID: "quantity", question: "How many are we cooking for?", options: "free answer", backImg: "guests.jpg", userAnswer: ""},
+                    {qID: "time", question: "How much time do you have?", options: "free answer", backImg: "time.jpg", userAnswer: ""}];
 var question; // variable to store dynamically created element for questions
 var options; // variable to store dynamically created element for the options for each question
 var questionNum; // tracks which question is being displayed
@@ -31,7 +31,8 @@ $(document).ready(function() {
     }
     else {
       $("#next-button").removeAttr("data-toggle");
-      $("#question").html("");
+      $("#question-id").html("");
+      $("#options-id").html("");
 
       // increment questionNum so that next time displayQuestion is used, the next question object will be used
       increment();
@@ -53,7 +54,8 @@ $(document).ready(function() {
     }
     else {
       $("#previous-button").removeAttr("data-toggle");
-      $("#question").html("");
+      $("#question-id").html("");
+      $("#options-id").html("");
 
       decrement();
       console.log("question number: " + questionNum);
@@ -68,8 +70,6 @@ $(document).ready(function() {
 function displayQuestion() {
   // dynamically create div to store question
   question = $("<div>", {text: quizQuestions[questionNum].question});
-  // dynamically create button
-  nextButton = $("<button>", {id: "next-button", text: "Next"});
 
   console.log("number of options: " + quizQuestions[questionNum].options.length);
   //if()
@@ -81,11 +81,15 @@ function displayQuestion() {
     options = $("<div>", {class: "options", text: quizQuestions[questionNum].options[j]});
 
     // append the option to the question
-    question.append(options);
+    $("#options-id").append(options);
   };
 
   // append the question (and all options) to the static div w/ id of question in quiz.html
-  $("#question").append(question);
+  $("#question-id").append(question);
+
+  //change background image depending on question
+  $("html").css("background-image", "url('assets/images/" + quizQuestions[questionNum].backImg + "')");
+  $("body").css("background-image", "url('assets/images/" + quizQuestions[questionNum].backImg + "')");
 
   // store the user's choice
   storeAnswers();

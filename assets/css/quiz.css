@@ -3,6 +3,17 @@
     border: 1px red;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.jumbotron {
+    opacity: 0.6;
+    width: 90%;
+    margin: 0 auto;
+}
+
 .navbar {
     opacity: 0.65;
 }
