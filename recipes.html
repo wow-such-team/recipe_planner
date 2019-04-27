@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+  
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">Home</a>
@@ -26,18 +26,23 @@
                 <a class="nav-link" href="recipes.html">All Recipes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="store.html">Wine Pairings</a>
+                <a class="nav-link" href="store.html">Nearby Grocery</a>
             </li>
             </ul>
         </div>
     </nav>
 
+    <!-- Search Jumbotron -->
+    <div class="main-jumbotron" id = "search-jumbotron">
+        <h1 class="display-4">Recipe Search</h1>
+        <p class="lead">Already have something in mind? Search below!.</p>
 
-    <!-- Recipe Search Bar -->
+        <!-- Recipe Search Bar -->
     <form class="example" action="action_page.php" id = "search-bar">
         <input type="text" placeholder="Search All Recipes..." id="search">
         <input class="btn" id="searchSubmit" type="submit" value="Go">
     </form>
+    </div>
 
     <!-- Recipe List -->
     <div id = "recipes-appear-here"></div>
@@ -49,10 +54,10 @@
             </div>
             <div class="card p-3">
               <blockquote class="blockquote mb-0 card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <p>People who love to eat are always the best people.</p>
                 <footer class="blockquote-footer">
                   <small class="text-muted">
-                    Someone famous in <cite title="Source Title">Source Title</cite>
+                    Julia Child
                   </small>
                 </footer>
               </blockquote>
@@ -60,7 +65,7 @@
             <div class="card card-body">
               <img class="card-img-top" src="assets/images/background1.jpg" alt="Card image cap">
             </div>
-            <div class="card bg-primary text-white text-center p-3">
+            <div class="card text-center p-3" id = "mainCard">
               <blockquote class="blockquote mb-0">
                 <p>Search through thousands of recipes to find exactly what you need!</p>
               </blockquote>
@@ -70,10 +75,10 @@
             </div>
             <div class="card p-3 text-right" id = "quoteCard">
               <blockquote class="blockquote mb-0">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <p>My doctor told me I had to stop throwing intimate dinners for 4 unless there are 3 other people.</p>
                 <footer class="blockquote-footer">
                   <small class="text-muted">
-                    Someone famous in <cite title="Source Title">Source Title</cite>
+                    Orson Welles
                   </small>
                 </footer>
               </blockquote>

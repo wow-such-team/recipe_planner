@@ -1,5 +1,56 @@
-body{
-    color:white;
-    font-family: 'Slabo 27px', serif;
-    background-image: url("../images/background3.jpg");
-    }
+body, html {
+    background-image: url("../images/google-maps-background3.jpg");
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+#search-bar {
+    position: relative;
+    float: left;
+    top: 5%;
+    width: 50%;
+    max-width: 400px;
+    border: 3px solid rgb(67, 196, 247);
+    margin-bottom: 80px;
+    margin-right: 50%;
+}
+
+#zipcode {
+    float: left;
+    width: 85%;
+    height: 35px;
+}
+
+#zipcodeSubmit {
+    width: 5%;
+    padding: 0;
+    margin: 0;
+    width: 15%;
+    height: 35px;
+    color: white;
+    background-color: rgb(67, 196, 247);
+    border-color: white;
+    font-weight: bolder;
+}
+
+#search-jumbotron {
+    text-align: left;
+    margin-top: 25px;
+    margin-left: 5%;
+    color: rgb(255, 255, 255);
+}
+
+#zipcodeP {
+    color: rgb(221, 81, 112);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+iframe {
+    width: 80%;
+    height: 400px;
+    max-width: 500px;
+    margin: 15px;
+    margin-left: 5%;
+}
