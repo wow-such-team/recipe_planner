@@ -12,6 +12,8 @@ html, body {
     opacity: 0.6;
     width: 90%;
     margin: 0 auto;
+
+    margin: 50px;
 }
 
 .navbar {
