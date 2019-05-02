@@ -1,6 +1,6 @@
 #selected {
-    background: pink;
-    border: 1px red;
+    background: lightgray;
+    border: 1px lightslategray;
 }
 
 html, body {
@@ -9,7 +9,9 @@ html, body {
 }
 
 .jumbotron {
-    opacity: 0.6;
+    /* opacity: 0.6; */
+    background: rgb(204, 204, 204);
+    background: rgba(204, 204, 204, 0.6);
     width: 90%;
     margin: 0 auto;
 
