@@ -1,4 +1,5 @@
 // array to store each question w/ associated options
+<<<<<<< HEAD
 var quizQuestions = [{qID: "diet", question: "Do you have dietary restrictions?", options: ["Vegetarian", "Vegan", "Low Carb", "All the Carbs"], backImg: "background8.jpg", userAnswer: ""},
                     {qID: "food-veggie", question: "Pick your protein!", options: ["Tofu", "Tempeh", "Seitan", "Mushrooms", "Beans"], backImg: "vegetable-background.jpeg", userAnswer: ""},
                     {qID: "food-protein", question: "Pick your protein!", options: ["Turkey", "Beef", "Chicken", "Pork", "Lamb", "Duck", "Fish", "Shrimp", "Crab", "Lobster", "Clam", "Mussel"], backImg: "pescatarian-background.jpg", userAnswer: ""},
@@ -7,6 +8,16 @@ var quizQuestions = [{qID: "diet", question: "Do you have dietary restrictions?"
                     {qID: "calories", question: "What is your desire calorie (kcal) range per serving?", options: ["0-300", "300-500", "500-600", "600-700", "I don't care"], backImg: "calories.jpg", userAnswer: ""},
                     {qID: "quantity", question: "How many are we cooking for?", options: "free answer", backImg: "guests.jpg", userAnswer: ""},
                     {qID: "time", question: "How much time do you have?", options: ["30 minutes", "1 hour", "2 hours", "3 hours", "4 hours", "as much time as I need"], backImg: "time.jpg", userAnswer: ""}];
+=======
+var quizQuestions = [{qID: "diet", question: "Do you have dietary restrictions?", options: ["Vegetarian", "Vegan", "Pescatarian", "Nothing in particular"], backImg: "background8.jpg", userAnswer: ""},
+                    {qID: "veggie protein", question: "Pick your protein!", options: ["Tofu", "Tempeh", "Seitan", "Mushrooms", "Beans"], backImg: "vegetable-background.jpeg", userAnswer: ""},
+                    {qID: "sea protein", question: "Pick your protein!", options: ["Fish", "Shrimp", "Crab", "Lobster", "Clam", "Mussel"], backImg: "pescatarian-background.jpg", userAnswer: ""},
+                    {qID: "meat protein", question: "Pick your protein!", options: ["Beef", "Chicken", "Fish", "Pork", "Lamb"], backImg: "meat-protein.jpg", userAnswer: ""},
+                    {qID: "exclude", question: "Ingredients to exclude (use commas to separate if multiple ingredients). Put 'nothing' if you don't want any ingredients excluded.", options: "free answer", backImg: "allergies.jpg", userAnswer: ""},
+                    {qID: "calories", question: "What is your desire calorie (kcal) range per serving?", options: ["0-300", "300-500", "500-600", "600-700", "I don't care"], backImg: "calories.jpg", userAnswer: ""},
+                    {qID: "quantity", question: "How many are we cooking for?", options: "free answer", backImg: "guests.jpg", userAnswer: ""},
+                    {qID: "time", question: "How much time do you have?", options: ["30 minutes or less", "30 minutes to 1 hour", "1-2 hours", "2-3 hours", "3-4 hours", "as much time as I need"], backImg: "time.jpg", userAnswer: ""}];
+>>>>>>> favorites
 var question; // variable to store dynamically created element for questions
 var options; // variable to store dynamically created element for the options for each question
 // var optionsInput; // variable to store dynamically created element for input box for free answer questions
@@ -129,6 +140,7 @@ function storeAnswers() {
   if(quizQuestions[questionNum].options==="free answer") {
     $("#input-submit").on("click", function() {
       quizQuestions[questionNum].userAnswer = $("#free-answer").val().toLowerCase();
+<<<<<<< HEAD
 
       console.log(quizQuestions[questionNum]);
     });
@@ -144,6 +156,23 @@ function storeAnswers() {
       // store the user's chosen option into the quizQuestion array w/ key userAnswer
       quizQuestions[questionNum].userAnswer = $(this).text().toLowerCase().trim().replace(/ /g, "-");
 
+=======
+
+      console.log(quizQuestions[questionNum]);
+    });
+  }
+    else {
+    $(".options").on("click", function() {
+      console.log("user clicked " + $(this).text());
+
+      // adds id to selected option so that background color is different
+      $(".options").removeAttr("id");
+      $(this).attr("id", "selected");
+
+      // store the user's chosen option into the quizQuestion array w/ key userAnswer
+      quizQuestions[questionNum].userAnswer = $(this).text().toLowerCase().trim();
+
+>>>>>>> favorites
       console.log(quizQuestions[questionNum]);
     });
   };
@@ -163,6 +192,7 @@ function getResults() {
   var numOfPeople;
   var cookingTime;
 
+<<<<<<< HEAD
   // diet protein type
   if(quizQuestions[0].userAnswer==="vegetarian" || quizQuestions[0].userAnswer==="vegan") {
     diet = "&health=" + quizQuestions[0].userAnswer;
@@ -178,6 +208,26 @@ function getResults() {
   else { // all the carbs
     console.log("no diet");
     diet = "";
+=======
+  // diet type
+  if(quizQuestions[0].userAnswer==="nothing in particular") {
+    console.log("no diet");
+    diet = "";
+  }
+  else {
+    diet = "&health=" + quizQuestions[0].userAnswer;
+    console.log(diet);
+  }
+
+  // protein type
+  if(quizQuestions[0].userAnswer==="vegetarian" || quizQuestions[0].userAnswer==="vegan") {
+    protein = quizQuestions[1].userAnswer;
+  }
+  else if(quizQuestions[0]==="pescatarian") {
+    protein = quizQuestions[2].userAnswer;
+  }
+  else {
+>>>>>>> favorites
     protein = quizQuestions[3].userAnswer;
   };
   console.log(protein);
@@ -195,6 +245,7 @@ function getResults() {
     };
     console.log(excludedItems);
   };
+<<<<<<< HEAD
 
   // calorie range
   if(quizQuestions[5].userAnswer==="i-don't-care") {
@@ -234,12 +285,61 @@ function getResults() {
       cookingTime = "";
   };
   console.log(cookingTime);  
+=======
+
+  // calorie range
+  if(quizQuestions[5].userAnswer==="i don't care") {
+    calorieRange = "";
+    console.log("no calorie range");
+  }
+  else {
+    calorieRange = "&calories=" + quizQuestions[5].userAnswer;
+    console.log(calorieRange);
+  }
+
+  // number of people to cook for
+  numOfPeople = parseInt(quizQuestions[6].userAnswer);
+  console.log(numOfPeople);
+
+  // cooking time
+  switch (quizQuestions[7].userAnswer) {
+    case quizQuestions[7].options[0].toLowerCase():
+      cookingTime = "&time=0-30";
+      break;
+    case quizQuestions[7].options[1].toLowerCase():
+      cookingTime = "&time=30-60";
+      break;
+    case quizQuestions[7].options[2].toLowerCase():
+      cookingTime = "&time=60-120";
+      break;
+    case quizQuestions[7].options[3].toLowerCase():
+      cookingTime = "&time=120-180";
+      break;
+    case quizQuestions[7].options[4].toLowerCase():
+      cookingTime = "&time=180-240";
+      break;
+    case quizQuestions[7].options[5].toLowerCase():
+      cookingTime = "";
+      break;
+    default:
+      cookingTime = "";
+  };
+  console.log(cookingTime);  
+
+  // clear html of question & options
+  $("#question-id").html("Here is Your Quiz Result!");
+  $("#options-id").html("");
+>>>>>>> favorites
 
   // clear html of question & options
   $("#question-id").html("Here is Your Quiz Result!");
   $("#options-id").html("");
 
+<<<<<<< HEAD
   var queryURL = "https://api.edamam.com/search?q=" + protein + "&app_id=" + id + "&app_key=" + key + diet + excludedItems + cookingTime + calorieRange;
+=======
+  var queryURL = "https://api.edamam.com/search?q=" + protein + "&app_id=" + id + "&app_key=" + key + diet + excludedItems + cookingTime;
+>>>>>>> favorites
 
   $.ajax({
     url: queryURL,
@@ -247,6 +347,7 @@ function getResults() {
   }).then(function(response) {
     console.log(response);
 
+<<<<<<< HEAD
     if(response.hits.length===0) {
       $("#options-id").text("No recipes matched your parameters.");
     }
@@ -263,6 +364,21 @@ function getResults() {
 
       $("#options-id").append(recipeImage, recipeTitle, recipeLink, recipeServings);
     };
+=======
+    // randomly choose recipe
+    var randomRecipe = Math.floor(Math.random()*response.hits.length);
+    console.log(randomRecipe);
+
+    // display recipe
+    var recipeImage = $("<img>", {src: response.hits[randomRecipe].recipe.image});
+    var recipeTitle = $("<h1>", {text: response.hits[randomRecipe].recipe.label});
+    var recipeLink = $("<a>", {href: response.hits[randomRecipe].recipe.url, text: response.hits[randomRecipe].recipe.url});
+    var ingredientsList;
+
+    $("#options-id").append(recipeImage, recipeTitle, recipeLink);
+    $("#options-id").push($("#save-id"));
+    console.log($("#save-id"));
+>>>>>>> favorites
   });
 };
 
