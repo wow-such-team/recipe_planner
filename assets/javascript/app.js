@@ -1,12 +1,12 @@
 // array to store each question w/ associated options
-var quizQuestions = [{qID: "diet", question: "Do you have dietary restrictions?", options: ["Vegetarian", "Vegan", "Pescatarian", "Nothing in particular"], backImg: "background8.jpg", userAnswer: ""},
-                    {qID: "veggie protein", question: "Pick your protein!", options: ["Tofu", "Tempeh", "Seitan", "Mushrooms", "Beans"], backImg: "vegetable-background.jpeg", userAnswer: ""},
-                    {qID: "sea protein", question: "Pick your protein!", options: ["Fish", "Shrimp", "Crab", "Lobster", "Clam", "Mussel"], backImg: "pescatarian-background.jpg", userAnswer: ""},
-                    {qID: "meat protein", question: "Pick your protein!", options: ["Beef", "Chicken", "Fish", "Pork", "Lamb"], backImg: "meat-protein.jpg", userAnswer: ""},
+var quizQuestions = [{qID: "diet", question: "Do you have dietary restrictions?", options: ["Vegetarian", "Vegan", "Low Carb", "All the Carbs"], backImg: "background8.jpg", userAnswer: ""},
+                    {qID: "food-veggie", question: "Pick your protein!", options: ["Tofu", "Tempeh", "Seitan", "Mushrooms", "Beans"], backImg: "vegetable-background.jpeg", userAnswer: ""},
+                    {qID: "food-protein", question: "Pick your protein!", options: ["Turkey", "Beef", "Chicken", "Pork", "Lamb", "Duck", "Fish", "Shrimp", "Crab", "Lobster", "Clam", "Mussel"], backImg: "pescatarian-background.jpg", userAnswer: ""},
+                    {qID: "food-carb", question: "Pick your protein!", options: ["Pasta", "Bread", "Rice", "Potato", "Noodles"], backImg: "meat-protein.jpg", userAnswer: ""},
                     {qID: "exclude", question: "Ingredients to exclude (use commas to separate if multiple ingredients). Put 'nothing' if you don't want any ingredients excluded.", options: "free answer", backImg: "allergies.jpg", userAnswer: ""},
                     {qID: "calories", question: "What is your desire calorie (kcal) range per serving?", options: ["0-300", "300-500", "500-600", "600-700", "I don't care"], backImg: "calories.jpg", userAnswer: ""},
                     {qID: "quantity", question: "How many are we cooking for?", options: "free answer", backImg: "guests.jpg", userAnswer: ""},
-                    {qID: "time", question: "How much time do you have?", options: ["30 minutes or less", "30 minutes to 1 hour", "1-2 hours", "2-3 hours", "3-4 hours", "as much time as I need"], backImg: "time.jpg", userAnswer: ""}];
+                    {qID: "time", question: "How much time do you have?", options: ["30 minutes", "1 hour", "2 hours", "3 hours", "4 hours", "as much time as I need"], backImg: "time.jpg", userAnswer: ""}];
 var question; // variable to store dynamically created element for questions
 var options; // variable to store dynamically created element for the options for each question
 // var optionsInput; // variable to store dynamically created element for input box for free answer questions
@@ -142,7 +142,7 @@ function storeAnswers() {
       $(this).attr("id", "selected");
 
       // store the user's chosen option into the quizQuestion array w/ key userAnswer
-      quizQuestions[questionNum].userAnswer = $(this).text().toLowerCase().trim();
+      quizQuestions[questionNum].userAnswer = $(this).text().toLowerCase().trim().replace(/ /g, "-");
 
       console.log(quizQuestions[questionNum]);
     });
@@ -163,24 +163,21 @@ function getResults() {
   var numOfPeople;
   var cookingTime;
 
-  // diet type
-  if(quizQuestions[0].userAnswer==="nothing in particular") {
-    console.log("no diet");
-    diet = "";
-  }
-  else {
+  // diet protein type
+  if(quizQuestions[0].userAnswer==="vegetarian" || quizQuestions[0].userAnswer==="vegan") {
     diet = "&health=" + quizQuestions[0].userAnswer;
     console.log(diet);
-  }
-
-  // protein type
-  if(quizQuestions[0].userAnswer==="vegetarian" || quizQuestions[0].userAnswer==="vegan") {
     protein = quizQuestions[1].userAnswer;
   }
-  else if(quizQuestions[0]==="pescatarian") {
+  else if(quizQuestions[0].userAnswer==="low-carb") {
+    diet = "&diet=" + quizQuestions[0].userAnswer;
+    console.log(diet);
+    console.log("user chose low carb");
     protein = quizQuestions[2].userAnswer;
   }
-  else {
+  else { // all the carbs
+    console.log("no diet");
+    diet = "";
     protein = quizQuestions[3].userAnswer;
   };
   console.log(protein);
@@ -200,7 +197,7 @@ function getResults() {
   };
 
   // calorie range
-  if(quizQuestions[5].userAnswer==="i don't care") {
+  if(quizQuestions[5].userAnswer==="i-don't-care") {
     calorieRange = "";
     console.log("no calorie range");
   }
@@ -215,22 +212,22 @@ function getResults() {
 
   // cooking time
   switch (quizQuestions[7].userAnswer) {
-    case quizQuestions[7].options[0].toLowerCase():
+    case quizQuestions[7].options[0].toLowerCase().replace(/ /g, "-"):
       cookingTime = "&time=0-30";
       break;
-    case quizQuestions[7].options[1].toLowerCase():
-      cookingTime = "&time=30-60";
+    case quizQuestions[7].options[1].toLowerCase().replace(/ /g, "-"):
+      cookingTime = "&time=0-60";
       break;
-    case quizQuestions[7].options[2].toLowerCase():
-      cookingTime = "&time=60-120";
+    case quizQuestions[7].options[2].toLowerCase().replace(/ /g, "-"):
+      cookingTime = "&time=0-120";
       break;
-    case quizQuestions[7].options[3].toLowerCase():
-      cookingTime = "&time=120-180";
+    case quizQuestions[7].options[3].toLowerCase().replace(/ /g, "-"):
+      cookingTime = "&time=0-180";
       break;
-    case quizQuestions[7].options[4].toLowerCase():
-      cookingTime = "&time=180-240";
+    case quizQuestions[7].options[4].toLowerCase().replace(/ /g, "-"):
+      cookingTime = "&time=0-240";
       break;
-    case quizQuestions[7].options[5].toLowerCase():
+    case quizQuestions[7].options[5].toLowerCase().replace(/ /g, "-"):
       cookingTime = "";
       break;
     default:
@@ -242,7 +239,7 @@ function getResults() {
   $("#question-id").html("Here is Your Quiz Result!");
   $("#options-id").html("");
 
-  var queryURL = "https://api.edamam.com/search?q=" + protein + "&app_id=" + id + "&app_key=" + key + diet + excludedItems + cookingTime;
+  var queryURL = "https://api.edamam.com/search?q=" + protein + "&app_id=" + id + "&app_key=" + key + diet + excludedItems + cookingTime + calorieRange;
 
   $.ajax({
     url: queryURL,
@@ -250,17 +247,22 @@ function getResults() {
   }).then(function(response) {
     console.log(response);
 
-    // randomly choose recipe
-    var randomRecipe = Math.floor(Math.random()*response.hits.length);
-    console.log(randomRecipe);
+    if(response.hits.length===0) {
+      $("#options-id").text("No recipes matched your parameters.");
+    }
+    else {
+      // randomly choose recipe
+      var randomRecipe = Math.floor(Math.random()*response.hits.length);
+      console.log(randomRecipe);
 
-    // display recipe
-    var recipeImage = $("<img>", {src: response.hits[randomRecipe].recipe.image});
-    var recipeTitle = $("<h1>", {text: response.hits[randomRecipe].recipe.label});
-    var recipeLink = $("<a>", {href: response.hits[randomRecipe].recipe.url, text: response.hits[randomRecipe].recipe.url});
-    var ingredientsList;
+      // display recipe
+      var recipeImage = $("<img>", {src: response.hits[randomRecipe].recipe.image});
+      var recipeTitle = $("<h1>", {text: response.hits[randomRecipe].recipe.label});
+      var recipeLink = $("<a>", {href: response.hits[randomRecipe].recipe.url, text: response.hits[randomRecipe].recipe.url});
+      var recipeServings = $("<p>", {text: "This recipe yields " + response.hits[randomRecipe].recipe.yield + " servings. You are cooking for " + numOfPeople + " people. You will need to multiply the ingredients by " + numOfPeople/response.hits[randomRecipe].recipe.yield + "."});
 
-    $("#options-id").append(recipeImage, recipeTitle, recipeLink);
+      $("#options-id").append(recipeImage, recipeTitle, recipeLink, recipeServings);
+    };
   });
 };
 
@@ -277,8 +279,8 @@ function increment() {
         console.log("increment veggie or vegan");
         questionNum = 1;
       }
-      else if(quizQuestions[0].userAnswer==="pescatarian") {
-        console.log("increment seafood");
+      else if(quizQuestions[0].userAnswer==="low-carb") {
+        console.log("increment low carb");
         questionNum = 2;
       }
       else {
@@ -304,8 +306,8 @@ function decrement() {
         console.log("decrement veggie or vegan");
         questionNum = 1;
       }
-      else if(quizQuestions[0].userAnswer==="pescatarian") {
-        console.log("decrement seafood");
+      else if(quizQuestions[0].userAnswer==="red-meat-free") {
+        console.log("decrement red meat free");
         questionNum = 2;
       }
       else {
