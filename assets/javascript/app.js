@@ -1,3 +1,15 @@
+// firebase stuff
+var config = {
+  apiKey: "AIzaSyBxkFmVfv-fnZ-u8TOdXWB8WdIXEDzFNTI",
+  authDomain: "recipesave-277cb.firebaseapp.com",
+  databaseURL: "https://recipesave-277cb.firebaseio.com",
+  storageBucket: "recipesave-277cb.appspot.com",
+};
+
+firebase.initializeApp(config);
+
+var database = firebase.database();
+
 // array to store each question w/ associated options
 var quizQuestions = [{qID: "diet", question: "Do you have dietary restrictions?", options: ["Vegetarian", "Vegan", "Low Carb", "All the Carbs"], backImg: "background8.jpg", userAnswer: ""},
                     {qID: "food-veggie", question: "Pick your protein!", options: ["Tofu", "Tempeh", "Seitan", "Mushrooms", "Beans"], backImg: "vegetable-background.jpeg", userAnswer: ""},
@@ -12,6 +24,7 @@ var options; // variable to store dynamically created element for the options fo
 // var optionsInput; // variable to store dynamically created element for input box for free answer questions
 var submitButton; // button for submitting free answer
 var questionNum; // tracks which question is being displayed
+var resultRecipe; // to store the answer
 
 $(document).ready(function() {
   console.log("document ready");
@@ -237,6 +250,14 @@ function getResults() {
   $("#question-id").html("Here is Your Quiz Result!");
   $("#options-id").html("");
 
+  // change background
+  $("html").css("background-image", "url('assets/images/result-background.jpg')");
+  $("body").css("background-image", "url('assets/images/result-background.jpg')");
+
+  // append a favorite button
+  var favoriteButton = $("<button>", {id: "favorite-button", text: "Save to Favorites"});
+  $("#question-id").append(favoriteButton);
+
   var queryURL = "https://api.edamam.com/search?q=" + protein + "&app_id=" + id + "&app_key=" + key + diet + excludedItems + cookingTime + calorieRange;
 
   $.ajax({
@@ -260,7 +281,24 @@ function getResults() {
       var recipeServings = $("<p>", {text: "This recipe yields " + response.hits[randomRecipe].recipe.yield + " servings. You are cooking for " + numOfPeople + " people. You will need to multiply the ingredients by " + numOfPeople/response.hits[randomRecipe].recipe.yield + "."});
 
       $("#options-id").append(recipeImage, recipeTitle, recipeLink, recipeServings);
+
+      // store chosen recipe
+      resultRecipe = response.hits[randomRecipe].recipe;
+      console.log(resultRecipe);
     };
+  });
+
+  $("#favorite-button").on("click", function() {
+    pushToFirebase();
+    location.href = "favorites.html";
+  });
+};
+
+// push latest quiz result to firebase
+function pushToFirebase() {
+  console.log("firebase temporary push")
+  database.ref().update({
+    temporary: resultRecipe
   });
 };
 
