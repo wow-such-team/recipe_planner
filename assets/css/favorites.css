@@ -7,7 +7,7 @@ body, html {
 
 #favorite-recipes {
     width: 100%;
-    height: 300px;
+    height: 700px;
     background-color: rgb(247, 106, 101);
     opacity: 0.9;;
 }
@@ -47,4 +47,10 @@ body, html {
     padding: 15px 25px;
     opacity: 0.9;
     border: 3px solid rgb(247, 106, 101);
+}
+
+.form-group{
+    display: inline-block;
+    width: 50%;
+    color: white;
 }

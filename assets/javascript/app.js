@@ -58,8 +58,6 @@ $(document).ready(function() {
   $("#previous-button").on("click", function() {
     console.log("clicked previous");
 
-    
-
     if(questionNum<=0) {
       console.log("You're already on the first question.");
       $("#previous-button").attr("data-toggle", "modal");
