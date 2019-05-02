@@ -9,10 +9,11 @@ body, html {
 .main-jumbotron {
     text-align: left;
     position: relative;
-    width: 65%;
+    width: 75%;
     top: 20%;
     left: 25%;;
     color: black;
+    margin: 0;
 }
 
 .display-4 {
@@ -51,5 +52,10 @@ button {
 
 #other-button {
     background-color: rgb(241, 155, 115);
+    color: black;
+}
+
+#saved-button {
+    background-color: rgb(247, 106, 101);
     color: black;
 }
