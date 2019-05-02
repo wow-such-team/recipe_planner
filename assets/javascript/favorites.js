@@ -31,8 +31,6 @@ $("#add-username-btn").on("click", function(event) {
         console.log(newUser.name);
         console.log(newUser.recipe);
 
-        alert("User successfully added");
-
         // Clears all of the text-boxes
         $("#user-name-input").val("");
       
