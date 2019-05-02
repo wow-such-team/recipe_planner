@@ -1,0 +1,56 @@
+body, html {
+    background-image: url("../images/background6.jpg");
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+#favorite-recipes {
+    width: 100%;
+    height: 700px;
+    background-color: rgb(247, 106, 101);
+    opacity: 0.9;;
+}
+
+.card-columns {
+    float: left;
+    margin-right: 85px;
+}
+
+.card {
+    margin: 20px;
+    display: inline-block;
+}
+
+.card-body {
+    margin: 25px;
+    border: 7px solid rgb(67, 196, 247);;
+}
+
+#mainCard {
+    background-color: rgb(67, 196, 247);
+}
+
+.navbar {
+    opacity: 0.65;
+}
+
+#search-jumbotron {
+    text-align: center;
+    margin-top: 25px;
+    background-color: beige;
+    position: relative;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 50%;
+    padding: 15px 25px;
+    opacity: 0.9;
+    border: 3px solid rgb(247, 106, 101);
+}
+
+.form-group{
+    display: inline-block;
+    width: 50%;
+    color: white;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--link css here-->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/favorites.css">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Prompt|Sarala:700|Teko" rel="stylesheet">
+    <title>Favorites Page</title>
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="quiz.html">Take our quiz! <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="recipes.html">All Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="store.html">Nearby Grocery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="favorites.html">Your Favorites</a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Jumbotron -->
+    <div class="main-jumbotron" id = "search-jumbotron">
+        <h1 class="display-4">Saved Recipes</h1>
+        <p class="lead">Save all your favorite recipes. Your quiz results will show here.</p>
+    </div>
+
+    
+    <div   id="favorite-recipes"  >
+        <div class= "row" >
+        <div class="col-lg-6">
+            <div class="card card-default">
+                <div class="card-header">
+                    New Member Sign-Up
+                </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="user-name-input">User Name</label>
+                        <input class="form-control" id="user-name-input" placeholder="Jane Doe" type="text">
+                        <br>
+                        <div id="save-id"></div>
+                        <br>
+                        <button class="btn btn-primary float-left" id="add-username-btn">Submit!</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+        <div class="col-lg-6">
+            <!-- Current users-->
+            <div class="card card-default">
+                <div class="card-header">
+                    Current Users
+                </div>
+            <div class="card-body">
+                <table class="table table-sm table-hover" id='user-table'>
+                    <thead>
+                        <tr>
+                            <th scope="col">Username</th>
+                            <th scope="col">Recipe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+      
+
+    <!-- Script tags for jquery (bootstrap jquery included) -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src ="assets/javascript/favorites.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

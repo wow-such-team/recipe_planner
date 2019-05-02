@@ -7,10 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!--link css here-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/quiz.css">
-
+    <!--link firebase here-->
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
     <!--link javascript here-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
@@ -39,6 +40,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="store.html">Nearby Grocery</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="favorites.html">Your Favorites</a>
+            </li>
             </ul>
         </div>
     </nav>
@@ -58,7 +62,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -71,6 +74,7 @@
         <p class="lead" id="options-id"></p>
         <button id="previous-button" data-target="#exampleModal">Previous</button>
         <button id="next-button" data-target="#exampleModal">Next</button>
+        <a id= "save-id" href= "favorites.html">Add to favorites!</a>
     </div>    
 </body>
 </html>
