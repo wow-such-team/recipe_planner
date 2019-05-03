@@ -43,55 +43,107 @@
     <!-- Main Jumbotron -->
     <div class="main-jumbotron" id = "search-jumbotron">
         <h1 class="display-4">Saved Recipes</h1>
-        <p class="lead">Save all your favorite recipes. Your quiz results will show here.</p>
+        <p class="lead">Enter your username if this is your first time. Click 'Save Recipe' next to your username to save the latest quiz result. Click your username to display your list of saved recipes.</p>
     </div>
 
     
     <div   id="favorite-recipes"  >
         <div class= "row" >
-        <div class="col-lg-6">
-            <div class="card card-default">
-                <div class="card-header">
-                    New Member Sign-Up
-                </div>
-            <div class="card-body">
-                <form>
-                    <div class="form-group">
-                        <label for="user-name-input">User Name</label>
-                        <input class="form-control" id="user-name-input" placeholder="Jane Doe" type="text">
-                        <br>
-                        <div id="save-id"></div>
-                        <br>
-                        <button class="btn btn-primary float-left" id="add-username-btn">Submit!</button>
+            <div class="col-lg-6">
+                <div class="card card-default">
+                    <div class="card-header">
+                        New Member Sign-Up
                     </div>
-                </form>
-            </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="user-name-input">User Name</label>
+                                <input class="form-control" id="user-name-input" placeholder="Jane Doe" type="text">
+                                <br>
+                                <div id="save-id"></div>
+                                <br>
+                                <button class="btn btn-primary float-left" id="add-username-btn">Submit!</button>
+                                <br>
+                                <p id="username-message"></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
         <div class="row">
-        <div class="col-lg-6">
-            <!-- Current users-->
-            <div class="card card-default">
-                <div class="card-header">
-                    Current Users
+            <div class="col-lg-6">
+                <!-- Current users-->
+                <div class="card card-default">
+                    <div class="card-header">
+                        Current Users
+                    </div>
+                <div class="card-body">
+                    <table class="table table-sm table-hover" id='user-table'>
+                        <thead>
+                            <tr>
+                                <th scope="col">Username</th>
+                                <th scope="col">Save Recipe</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
-            <div class="card-body">
-                <table class="table table-sm table-hover" id='user-table'>
-                    <thead>
-                        <tr>
-                            <th scope="col">Username</th>
-                            <th scope="col">Recipe</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
+                </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- Current users-->
+                <div class="card card-default">
+                    <div class="card-header" id="user-favorites-title">
+                        Favorite Recipes
+                    </div>
+                <div class="card-body">
+                    <table class="table table-sm table-hover" id='recipe-table'>
+                        <thead>
+                            <tr>
+                                <th scope="col">Recipe</th>
+                                <th scope="col">Link</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recipe-table-body">
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
         </div>
+
+        <div class="row">
+                <div class="col-lg-6">
+                    <!-- Current users-->
+                    <div class="card card-default">
+                        <div class="card-header">
+                            Last Recipe From Quiz
+                        </div>
+                    <div class="card-body">
+                        <table class="table table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Recipe</th>
+                                    <th scope="col">Link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="temp-recipe-title"></td>
+                                    <td><a id="temp-recipe-link"></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+            </div>
     </div>
       
 
@@ -100,7 +152,6 @@
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src ="assets/javascript/favorites.js"></script>
-    <script type="text/javascript" src="assets/javascript/app.js"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
