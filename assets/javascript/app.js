@@ -273,6 +273,7 @@ function getResults() {
       // randomly choose recipe
       var randomRecipe = Math.floor(Math.random()*response.hits.length);
       console.log(randomRecipe);
+      console.log(response.hits[randomRecipe].recipe);
 
       // display recipe
       var recipeImage = $("<img>", {src: response.hits[randomRecipe].recipe.image});
@@ -284,7 +285,6 @@ function getResults() {
 
       // store chosen recipe
       resultRecipe = response.hits[randomRecipe].recipe;
-      console.log(resultRecipe);
     };
   });
 

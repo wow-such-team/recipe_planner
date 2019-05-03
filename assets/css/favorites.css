@@ -54,3 +54,9 @@ body, html {
     width: 50%;
     color: white;
 }
+
+#username-message {
+    margin-top: 20px;
+    color: red;
+    font-size: 12px;
+}
