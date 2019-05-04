@@ -47,9 +47,9 @@
     </div>
 
     
-    <div   id="favorite-recipes"  >
+    <div   id="favorite-recipes">
         <div class= "row" >
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="card card-default">
                     <div class="card-header">
                         New Member Sign-Up
@@ -70,10 +70,37 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-lg-8">
+                <div class="card card-default">
+                    <div class="card-header">
+                        Last Interested Recipe
+                    </div>
+                <div class="card-body">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Recipe</th>
+                                <th scope="col">Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="temp-recipe-title"></td>
+                                <td><a id="temp-recipe-link"></a></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" id="temp-save-message"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <!-- Current users-->
                 <div class="card card-default">
                     <div class="card-header">
@@ -93,11 +120,8 @@
                 </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-6">
-                <!-- Current users-->
+            <div class="col-lg-8">
                 <div class="card card-default">
                     <div class="card-header" id="user-favorites-title">
                         Favorite Recipes
@@ -117,33 +141,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="row">
-                <div class="col-lg-6">
-                    <!-- Current users-->
-                    <div class="card card-default">
-                        <div class="card-header">
-                            Last Recipe From Quiz
-                        </div>
-                    <div class="card-body">
-                        <table class="table table-sm table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Recipe</th>
-                                    <th scope="col">Link</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td id="temp-recipe-title"></td>
-                                    <td><a id="temp-recipe-link"></a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    </div>
-                </div>
-            </div>
     </div>
       
 
