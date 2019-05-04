@@ -68,7 +68,7 @@ $("#add-username-btn").on("click", function(event) {
     }, 15000);
 });
 
-// 3. Create Firebase event for adding employee to the database and a row in the html when a user adds an entry
+// 3. Create Firebase event for adding users to the database and a row in the html when a user adds an entry
 database.ref('users').on("child_added", function(childSnapshot) {
     console.log(childSnapshot.val());
     usedUsernames.push(childSnapshot.val().name);
@@ -93,6 +93,7 @@ database.ref('users').on("child_added", function(childSnapshot) {
     // Append the new row to the table
     $("#user-table > tbody").append(newRow);
 
+    // when click username, show user's favorites
     $(".username").on("click", function() {
         // console.log("clicked user's name");
         // console.log($(this).text());
@@ -128,16 +129,47 @@ database.ref('users').on("child_added", function(childSnapshot) {
     // save latest quiz result to associated username when 'save recipe' is clicked
     $(".saverecipe").on("click", function() {
         console.log("clicked save recipe");
+        console.log(childSnapshot.val().name);
         var selectedName = $(this).closest("tr").attr("name");
 
         if(selectedName===childSnapshot.val().name) {
             console.log(childSnapshot.val());;
-            database.ref('users').child(childSnapshot.key).child('recipes').push(tempRecipe);
-        }
+            console.log(childSnapshot.key);
+
+            // push recipe url's into an array to use later to check against
+            var recipeArray = [];
+            database.ref('users').child(childSnapshot.key).child('recipes').on('child_added', function(childSnapshot) {
+                recipeArray.push(childSnapshot.val().url);
+            });
+
+            console.log(recipeArray);
+
+            // check if user has already saved recipe
+            var checkRecipeSave = false; // false means recipe has not been saved to the username yet
+            for(var i=0; i<recipeArray.length; i++) {
+                if(recipeArray[i]===tempRecipe.url) {
+                    checkRecipeSave = true;
+                    console.log("recipe already saved to this username");
+                    break;
+                }
+                else {
+                    checkRecipeSave = false;
+                    continue;
+                }
+            };
+
+            if(checkRecipeSave===false) {
+                database.ref('users').child(childSnapshot.key).child('recipes').push(tempRecipe);
+            }
+            else {
+                $("#temp-save-message").text("You've already saved this recipe to the selected username.");
+                setTimeout(function() {
+                    $("#temp-save-message").html("");
+                }, 15000);
+            }
+        };
     });
 });
-
-
 
 // display temporary recipe
 database.ref('temporary').on('value', function(snapshot) {

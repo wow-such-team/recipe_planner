@@ -13,8 +13,8 @@ var database = firebase.database();
 // array to store each question w/ associated options
 var quizQuestions = [{qID: "diet", question: "Do you have dietary restrictions?", options: ["Vegetarian", "Vegan", "Low Carb", "All the Carbs"], backImg: "background8.jpg", userAnswer: ""},
                     {qID: "food-veggie", question: "Pick your protein!", options: ["Tofu", "Tempeh", "Seitan", "Mushrooms", "Beans"], backImg: "vegetable-background.jpeg", userAnswer: ""},
-                    {qID: "food-protein", question: "Pick your protein!", options: ["Turkey", "Beef", "Chicken", "Pork", "Lamb", "Duck", "Fish", "Shrimp", "Crab", "Lobster", "Clam", "Mussel"], backImg: "pescatarian-background.jpg", userAnswer: ""},
-                    {qID: "food-carb", question: "Pick your protein!", options: ["Pasta", "Bread", "Rice", "Potato", "Noodles"], backImg: "meat-protein.jpg", userAnswer: ""},
+                    {qID: "food-protein", question: "Pick your protein!", options: ["Turkey", "Beef", "Chicken", "Pork", "Lamb", "Duck", "Fish", "Shrimp", "Crab", "Lobster", "Clam", "Mussel"], backImg: "meat-protein.jpg", userAnswer: ""},
+                    {qID: "food-carb", question: "Pick your protein!", options: ["Pasta", "Bread", "Rice", "Potato", "Noodles"], backImg: "carbs.jpg", userAnswer: ""},
                     {qID: "exclude", question: "Ingredients to exclude (use commas to separate if multiple ingredients). Put 'nothing' if you don't want any ingredients excluded.", options: "free answer", backImg: "allergies.jpg", userAnswer: ""},
                     {qID: "calories", question: "What is your desire calorie (kcal) range per serving?", options: ["0-300", "300-500", "500-600", "600-700", "I don't care"], backImg: "calories.jpg", userAnswer: ""},
                     {qID: "quantity", question: "How many are we cooking for?", options: "free answer", backImg: "guests.jpg", userAnswer: ""},
@@ -114,6 +114,11 @@ function displayQuestion() {
       // dynamically create a div for an option
       options = $("<div>", {class: "options", text: quizQuestions[questionNum].options[j]});
 
+      // when clicking previous, chosen answer is highlighed in grey
+      if(quizQuestions[questionNum].options[j].toLowerCase().trim().replace(/ /g, "-")===quizQuestions[questionNum].userAnswer) {
+        options.attr("id", "selected");
+      }
+
       // append the option to the question
       $("#options-id").append(options);
     };
@@ -160,6 +165,7 @@ function storeAnswers() {
   };
 };
 
+// gets recipe from API based on quiz results
 function getResults() {
   // API Key
   var id = 'dbfb23e8'; 
@@ -255,7 +261,7 @@ function getResults() {
   $("body").css("background-image", "url('assets/images/result-background.jpg')");
 
   // append a favorite button
-  var favoriteButton = $("<button>", {id: "favorite-button", text: "Save to Favorites"});
+  var favoriteButton = $("<button>", {id: "favorite-button", text: "❤ Save to Favorites"});
   $("#question-id").append(favoriteButton);
 
   var queryURL = "https://api.edamam.com/search?q=" + protein + "&app_id=" + id + "&app_key=" + key + diet + excludedItems + cookingTime + calorieRange;
@@ -297,8 +303,10 @@ function getResults() {
 // push latest quiz result to firebase
 function pushToFirebase() {
   console.log("firebase temporary push")
-  database.ref().update({
-    temporary: resultRecipe
+  database.ref('temporary').update({
+    label: resultRecipe.label,
+    url: resultRecipe.url,
+    image: resultRecipe.image
   });
 };
 
@@ -342,8 +350,8 @@ function decrement() {
         console.log("decrement veggie or vegan");
         questionNum = 1;
       }
-      else if(quizQuestions[0].userAnswer==="red-meat-free") {
-        console.log("decrement red meat free");
+      else if(quizQuestions[0].userAnswer==="low-carb") {
+        console.log("decrement low carb");
         questionNum = 2;
       }
       else {
