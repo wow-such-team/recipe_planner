@@ -14,7 +14,7 @@ var database = firebase.database();
 var quizQuestions = [{qID: "diet", question: "Do you have dietary restrictions?", options: ["Vegetarian", "Vegan", "Low Carb", "All the Carbs"], backImg: "background8.jpg", userAnswer: ""},
                     {qID: "food-veggie", question: "Pick your protein!", options: ["Tofu", "Tempeh", "Seitan", "Mushrooms", "Beans"], backImg: "vegetable-background.jpeg", userAnswer: ""},
                     {qID: "food-protein", question: "Pick your protein!", options: ["Turkey", "Beef", "Chicken", "Pork", "Lamb", "Duck", "Fish", "Shrimp", "Crab", "Lobster", "Clam", "Mussel"], backImg: "meat-protein.jpg", userAnswer: ""},
-                    {qID: "food-carb", question: "Pick your protein!", options: ["Pasta", "Bread", "Rice", "Potato", "Noodles"], backImg: "carbs.jpg", userAnswer: ""},
+                    {qID: "food-carb", question: "Pick your carbohydrate of choice!", options: ["Pasta", "Bread", "Rice", "Potato", "Noodles"], backImg: "carbs.jpg", userAnswer: ""},
                     {qID: "exclude", question: "Ingredients to exclude (use commas to separate if multiple ingredients). Put 'nothing' if you don't want any ingredients excluded.", options: "free answer", backImg: "allergies.jpg", userAnswer: ""},
                     {qID: "calories", question: "What is your desire calorie (kcal) range per serving?", options: ["0-300", "300-500", "500-600", "600-700", "I don't care"], backImg: "calories.jpg", userAnswer: ""},
                     {qID: "quantity", question: "How many are we cooking for?", options: "free answer", backImg: "guests.jpg", userAnswer: ""},
