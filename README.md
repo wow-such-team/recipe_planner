@@ -17,6 +17,13 @@
 - Ajax: Used Ajax for interacting with the APIs.
 
 
+
 # Website Functions Detailed:
 
 ## Quiz
+
+## All Recipes
+
+## Nearby Grocery
+
+## Your Favorites

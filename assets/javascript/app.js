@@ -39,15 +39,22 @@ $(document).ready(function() {
   $("#next-button").on("click", function() {
     console.log("clicked next");
 
+    // after last quiz question, display result
     if(questionNum===quizQuestions.length-1) {
       console.log("no more questions");
-      $(".modal-body").text("This is the last question. There is nothing after this.");
       console.log(quizQuestions);
+
+      $("#next-button").removeAttr("data-toggle");
+      $("#question-id").html("");
+      $("#options-id").html("");
+
       increment();
       getResults();
     }
+    // on result page, do not allow user to proceed any further
     else if (questionNum===quizQuestions.length) {
-      $("#previous-button").attr("data-toggle", "modal");
+      $("#next-button").text("Next");
+      $("#next-button").attr("data-toggle", "modal");
       $(".modal-body").text("There is nothing after this.");
     }
     else if (quizQuestions[questionNum].userAnswer==="") {
@@ -56,12 +63,20 @@ $(document).ready(function() {
       $(".modal-body").text("Please select a response or enter an input.");
     }
     else {
+      // increment questionNum so that next time displayQuestion is used, the next question object will be used
+      increment();
+
+      if(questionNum===quizQuestions.length-1) {
+        $("#next-button").text("Get Result");
+      }
+      else {
+        $("#next-button").text("Next");
+      }
+
       $("#next-button").removeAttr("data-toggle");
       $("#question-id").html("");
       $("#options-id").html("");
 
-      // increment questionNum so that next time displayQuestion is used, the next question object will be used
-      increment();
       console.log("question number: " + questionNum);
 
       displayQuestion();
@@ -77,11 +92,19 @@ $(document).ready(function() {
       $(".modal-body").text("This is the first question. There's nothing before this.");
     }
     else {
+      decrement();
+
+      if(questionNum===quizQuestions.length-1) {
+        $("#next-button").text("Get Result");
+      }
+      else {
+        $("#next-button").text("Next");
+      };
+
       $("#previous-button").removeAttr("data-toggle");
       $("#question-id").html("");
       $("#options-id").html("");
-
-      decrement();
+      
       console.log("question number: " + questionNum);
 
       displayQuestion();
